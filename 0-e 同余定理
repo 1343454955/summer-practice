@@ -1,1 +1,18 @@
 # summer-practice
+同余公式也有许多我们常见的定律,比如相等律,结合律,交换律,传递律….如下面的表示:
+
+1)a≡a(mod d)
+
+2)a≡b(mod d)→b≡a(mod d)
+
+3)(a≡b(mod d),b≡c(mod d))→a≡c(mod d)
+
+如果a≡x(mod d),b≡m(mod d),则
+
+4)a+b≡x+m （mod d）
+
+5)a-b≡x-m (mod d)
+
+6)a*b≡x*m (mod d )
+
+我们可以用一个圆上的点来表示具有相同余数的数。比如钟的盘面上的1点时数，表示所有余数为1的数。
