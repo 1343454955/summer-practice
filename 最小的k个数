@@ -1,0 +1,26 @@
+# summer-practice
+输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
+int* getLeastNumbers(int* arr, int arrSize, int k, int* returnSize){
+     *returnSize = k;
+     int *result = malloc(sizeof(int)*k);
+     int count = 0;
+     int remember = 0;
+     for(int i = 0;i<*returnSize;i++)
+     {
+       result[count] = arr[i];
+       for(int j = i;j<arrSize;j++)
+       {
+           if(arr[j]<=result[count])
+           {
+               result[count] = arr[j];
+               remember = j;
+           }
+       }
+       int temp = arr[i];
+       arr[i] = arr[remember];
+       arr[remember] = temp;
+       count++;
+     }
+     return result;
+}
+
