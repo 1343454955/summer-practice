@@ -35,3 +35,38 @@
 -1000 <= grid[i][j] <= 1000
 0 <= k <= 100
 
+
+int** shiftGrid(int** grid, int gridSize, int* gridColSize, int k, int* returnSize, int** returnColumnSizes)
+{
+    int list[3000],len=0;
+
+    for(int i=0;i<gridSize;i++)
+    {
+        for(int j=0;j<*gridColSize;j++)
+        {
+            list[len++]=grid[i][j];
+        }
+    }
+
+    k%=len;//获取最后非整圈的操作
+
+    k=len-k;//确定起点位置
+    k%=len;
+
+    //printf("len=%d k=%d \n",len,k);
+
+    *returnSize=gridSize;
+    for(int i=0;i<gridSize;i++)
+    {
+        (*returnColumnSizes)[i]=*gridColSize;
+        for(int j=0;j<*gridColSize;j++)
+        {
+            grid[i][j]=list[k++];
+            k%=len;
+        }
+    }
+
+    return grid;
+}
+
+
