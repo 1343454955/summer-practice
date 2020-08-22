@@ -1,0 +1,28 @@
+# summer-practice
+输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。
+
+
+**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+void maxdepthTraverse(struct TreeNode *root,int depth,int *maxdepth)
+{
+    if(root==NULL)
+        return ;
+    if(depth > *maxdepth)//递归过程中进行判断
+        *maxdepth=depth;
+    maxdepthTraverse(root->left,depth+1,maxdepth);
+    maxdepthTraverse(root->right,depth+1,maxdepth);
+//虽然会回溯但是不会起任何作用，这里递归是往里树下走树高度就+1，并作出判断
+}
+int maxDepth(struct TreeNode* root){
+    int maxdep=0;
+    maxdepthTraverse(root,1,&maxdep);
+    return maxdep;
+}
+
