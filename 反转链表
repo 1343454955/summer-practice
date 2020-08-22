@@ -1,0 +1,23 @@
+# summer-practice
+定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+
+struct ListNode *reverseList(struct ListNode *head)
+{
+    struct ListNode *p = NULL;
+    struct ListNode *pre = NULL;
+    struct ListNode *cur = head;
+
+    while (cur != NULL) {
+        struct ListNode *next = cur->next;
+        if (next == NULL) {
+            p = cur;
+        }
+
+        cur->next = pre;
+        pre = cur;
+        cur = next;
+    }
+
+    return p;
+}
+
