@@ -1,0 +1,17 @@
+# summer-practice
+删除链表中等于给定值 val 的所有节点。
+
+struct ListNode* removeElements(struct ListNode* head, int val){
+    while(head!=NULL&&head->val==val) head=head->next;  //找下去
+    struct ListNode* tmp=head;
+    while(tmp!=NULL){
+        if(tmp->next!=NULL&&tmp->next->val==val){
+            tmp->next=tmp->next->next;  //这是个坑，我之前用for语句就有毒！！
+        }
+        else{
+            tmp=tmp->next;
+        }
+    }
+    return head;
+}
+
