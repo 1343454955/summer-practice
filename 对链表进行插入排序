@@ -1,0 +1,77 @@
+# summer-practice
+
+插入排序算法：
+1.插入排序是迭代的，每次只移动一个元素，直到
+所有元素可以形成一个有序的输出列表。
+2.每次迭代中，插入排序只从输入数据中移除一个
+待排序的元素，找到它在序列中适当的位置，并将
+其插入。
+3.重复直到所有输入数据插入完为止。
+示例1：
+输入：4->2->1->3
+输出：1->2->3->4
+示例2：
+输入：-1->5->3->4->0
+输出：-1->0->3->4->5
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+//方法一：链表插入排序
+
+struct ListNode* insertionSortList(struct ListNode* head){
+    struct ListNode*    pHead   = NULL;
+    struct ListNode*    pCur    = NULL;
+    struct ListNode*    pNext   = NULL;
+    struct ListNode*    pTmp    = NULL;
+    struct ListNode*    pRet    = NULL;
+
+    if(NULL == head) return NULL;
+
+    //1，创建头节点，方便操作
+    pHead = (struct ListNode*)malloc(sizeof(struct ListNode));
+    if(NULL == pHead) return NULL;
+
+    pHead->next = head;
+    pCur = head;
+    pNext = pCur->next;
+
+    while(NULL != pNext)
+    {
+        if(pNext->val < pCur->val)
+        {
+            //2，判断元素需要移动
+            pTmp = pHead;
+            while((NULL != pTmp) && (NULL != pTmp->next) && (pTmp->next->val <= pNext->val))
+            {
+                pTmp = pTmp->next;
+            }
+
+            //3，将 pNext 移到 pTmp 后
+            pCur->next = pNext->next;
+            pNext->next = pTmp->next;
+            pTmp->next = pNext;
+
+            //4，移动后pCur不动，pNext=pCur->next 继续判断
+            pNext = pCur->next;
+        }
+        else
+        {
+            //5，有序节点，直接处理下一节点
+            pCur = pNext;
+            pNext = pNext->next;
+        }
+    }
+
+    //6，释放 pHead 返回处理
+    pRet = pHead->next;
+    free(pHead);
+    pHead = NULL;
+
+    return pRet;
+}
