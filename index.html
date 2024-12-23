@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精美圣诞树</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .tree {
+            position: relative;
+            width: 0;
+            height: 0;
+        }
+
+        /* 树的部分 */
+        .tree .triangle {
+            width: 0;
+            height: 0;
+            border-left: 120px solid transparent;
+            border-right: 120px solid transparent;
+            border-bottom: 150px solid #228B22;
+            margin-left: -120px;
+        }
+
+        .tree .triangle:nth-child(2) {
+            border-bottom-color: #006400;
+            margin-top: -30px;
+        }
+
+        .tree .triangle:nth-child(3) {
+            border-bottom-color: #2e8b57;
+            margin-top: -30px;
+        }
+
+        .tree .triangle:nth-child(4) {
+            border-bottom-color: #006400;
+            margin-top: -30px;
+        }
+
+        /* 树干 */
+        .tree .trunk {
+            width: 60px;
+            height: 100px;
+            background-color: #8B4513;
+            margin-left: -30px;
+            border-radius: 10px;
+        }
+
+        /* 彩球装饰 */
+        .ornament {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .ornament:nth-child(1) {
+            top: 50px;
+            left: 50px;
+        }
+
+        .ornament:nth-child(2) {
+            top: 80px;
+            left: 90px;
+        }
+
+        .ornament:nth-child(3) {
+            top: 100px;
+            left: -50px;
+        }
+
+        .ornament:nth-child(4) {
+            top: 120px;
+            left: 40px;
+        }
+
+        .ornament:nth-child(5) {
+            top: 140px;
+            left: 110px;
+        }
+
+        .ornament:nth-child(6) {
+            top: 160px;
+            left: -20px;
+        }
+
+        .ornament:nth-child(7) {
+            top: 180px;
+            left: 70px;
+        }
+
+        /* 星星装饰 */
+        .star {
+            position: absolute;
+            top: -30px;
+            left: 90px;
+            width: 50px;
+            height: 50px;
+            background-color: gold;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tree">
+        <!-- 圣诞树的绿叶部分 -->
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+
+        <!-- 树干 -->
+        <div class="trunk"></div>
+
+        <!-- 彩球装饰 -->
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+
+        <!-- 星星装饰 -->
+        <div class="star"></div>
+    </div>
+
+</body>
+</html>
